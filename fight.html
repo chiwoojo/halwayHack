@@ -50,7 +50,7 @@
 
           </div>
           <button id="fight" class="btn btn-primary">Fight!</button>
-          <a href="#" id="move-forward" class="btn btn-primary">Move Forward</a>  
+          <a href="#" id="move-forward" class="btn btn-primary">Move Onward!</a>  
   
 
           <div class="row" id="button-row">
@@ -100,8 +100,8 @@
       var userHitDamage = Math.ceil(Math.random() * 50);
       monsterHealth -= userHitDamage;
       if (monsterHealth <= 0) {
-        $('#monster-health').text("0%");
-        $('#user-health').attr('style','width:0%;');
+        $('#monster-health').text("");
+        $('#monster-health').attr('style','width:0%;');
       } else {
         $('#monster-health').text(monsterHealth + "%");
         $('#monster-health').attr('style','width:' + monsterHealth + '%;');
@@ -110,7 +110,7 @@
       if (monsterHealth <= 0) {
         $('#fight').css('display', 'none');
         $('#move-forward').css('display', 'inline').attr('href', 'victory.html');
-        $('#fight-header').text('The Chris Topher Walken is Dead!');
+        $('#fight-header').text('You Win! The Chris Topher Walken is Dead!');
       }
     })
 
