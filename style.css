@@ -48,14 +48,13 @@ p {
   font-size: 20px;
 }
 
-#content {
-  width: 80%;
-  background-color:white;
-}
+
+*/
 
 #content p {
-  padding: 5%;
+  padding: 10%;
 }
+
 
 #inputwindow {
   background-color: white;
@@ -65,7 +64,8 @@ p {
   padding: 0;
 }
 
-#content-row {
+/*To give space on the bottom*/
+#contentrow {
   margin-bottom: 2%;
 }
 
@@ -80,4 +80,15 @@ p {
 
 #fight-header {
   padding-top: 10px;
+}
+#content-wrap {
+  background-color: white;
+}
+
+
+
+
+
+#content {
+    padding: 2%
 }
