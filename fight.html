@@ -1,40 +1,121 @@
 <!DOCTYPE html>
 <html> 
 <head>
-	<title>Survive!</title>
+  <title>Boss Stage!!</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
 </head>
-<body class="full4">
-<h1></h1>
+<body class="magical-background">
+  <img src="" alt="">
+  <h1></h1>
 
+  
+  <div class="container-fluid">
+    
 
-<div class="container-fluid">
-
-  <div class="center-block">
-
-  <div class="row" id="firstrow">
-   <iframe src="//giphy.com/embed/JrjNe1zbLYd3y" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/funny-gifs-nacho-libre-JrjNe1zbLYd3y">via GIPHY</a></p>
-  </div>
-
-<div class="row" id="inputwindow">
-  <div class="row">
-    <div #content>
- 
-    You got shot the F*#K UP! <a href="index.html">Click here</a> to start over!
+    <div class="row" id="character-row">
+      <img src="http://i.giphy.com/JrjNe1zbLYd3y.gif" class="img-responsive center-block">
     </div>
-  </div>
+
+    <div class="row" id="contentrow">
+
+      <div class="col-xs-offset-2">
+
+        <div id="content" class="text-center">
+
+        
+          <div id="health">
+            <h1 id="fight-header">You have to fight the Chris Topher Walken Monster!</h1>
+            <p>
+              User Health:
+
+            <!-- User Progress Bar -->
+            <div class="progress center-block">
+              <div class="progress-bar" style="width: 100%;" id="user-health">
+                100%
+              </div>
+            </div>
+
+            </p>
+
+            <p>
+              Chris Topher Walken Monster Health:             <div class="progress center-block">
+              <div class="progress-bar" style="width: 100%;" id="monster-health">
+                100%
+              </div>
+            </div>
+            </p>
+
+
+          </div>
+          <button id="fight" class="btn btn-primary">Fight!</button>
+          <a href="#" id="move-forward" class="btn btn-primary">Move Forward</a>  
   
-<div class="row" id="buttonrow">
-  <a class="btn btn-primary" id='index-button-left'>Fight</a>
-</div>
 
-</div>
-  
+          <div class="row" id="button-row">
+
+            
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
 
-</div>
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+  <script>
+    var userHealth = 100, monsterHealth = 100;
+
+    $('#move-forward').css('display', 'none');
+
+    $('#fight').click(function() {
+
+      $('#fight-header').html("You <span id='user-hit'>hit</span> the monster and the monster <span id='monster-hit'>hit</span> you back!");
+      $('#user-hit').css('color', 'green');
+      $('#monster-hit').css('color', 'red');
+      // USER HIT
+      var monsterHitDamage = Math.ceil(Math.random() * 50);
+      userHealth -= monsterHitDamage;
+      if (userHealth <= 0) {
+        $('#user-health').text("");
+        $('#user-health').attr('style','width:0%;');
+      } else {
+        $('#user-health').text(userHealth + "%");
+        $('#user-health').attr('style','width:' + userHealth + '%;');
+      }
+
+      if (userHealth <= 0) {
+        $('#fight').css('display', 'none');
+        $('#move-forward').css('display', 'inline').attr('href', 'death.html');
+        $('#fight-header').text("You're Dead!");
+      }
+
+      // monster HIT
+      var userHitDamage = Math.ceil(Math.random() * 50);
+      monsterHealth -= userHitDamage;
+      if (monsterHealth <= 0) {
+        $('#monster-health').text("0%");
+        $('#user-health').attr('style','width:0%;');
+      } else {
+        $('#monster-health').text(monsterHealth + "%");
+        $('#monster-health').attr('style','width:' + monsterHealth + '%;');
+      }
+
+      if (monsterHealth <= 0) {
+        $('#fight').css('display', 'none');
+        $('#move-forward').css('display', 'inline').attr('href', 'victory.html');
+        $('#fight-header').text('The Chris Topher Walken is Dead!');
+      }
+    })
+
+    </script>
 
 </body>
+
 </html>
