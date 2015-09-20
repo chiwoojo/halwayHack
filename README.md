@@ -6,7 +6,7 @@
 
 Visit our live site at http://development.adventure-game.divshot.io/
 
-This project was built with HTML, CSS, JavaScript, jQuery, and Bootstrap. 
+This project was built with HTML, CSS, JavaScript, jQuery, and Bootstrap. The site is fully responsive and mobile friendly :)
 
 ## Team 
 
